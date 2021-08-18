@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>ClickHouse 入门</title>
+    <url>/2021/08/16/ClickHouse/2021-08-16/</url>
+    <content><![CDATA[<ul>
+<li>ClickHouse 数据在目录中是如何存储的？</li>
+</ul>
+<blockquote>
+<p>在 clickhouse config.xml 中 <code>&lt;path&gt;/var/lib/clickhouse/&lt;/path&gt;</code> 指定了本地数据存储的目录。<br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16271469310713.jpg" alt="-w1082"><br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16271477069317.jpg" alt="-w1162"><br>① all_1_10003_520: “all” 代表分区，该表没有分区所以默认为 all。同一个分区在数据未进行合并的时候会存在多个目录；”1” 代表该分区目录下最小数据块，“10003” 代表该分区目录下的最大数据块，“520” 代表这段数据块范围的数据总共合并的次数。每 15 分钟数据进行一次合并<br>注：如果使用非数字字符串字段作为分区字段，那么分区目录将使用 hashcode(field)_X_Y_N 形式来命名(目录 hashcode 具体对应那个分区，可以通过查看分区表信息获取)<br>② 列式存储，每个字段存在两个文件</p>
+</blockquote>
+<ul>
+<li>查看表的分区信息</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#在系统表 system.part中查询表 tblX 的分区信息：</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">table</span> ,<span class="keyword">partition</span> ,name ,active </span><br><span class="line"><span class="keyword">from</span> system.parts <span class="keyword">where</span> <span class="keyword">table</span> <span class="operator">=</span> <span class="string">&#x27;tblX&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建分布式引擎语法</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> [db].tblX <span class="keyword">on</span> cluster &#123;CLUSTER_NAME&#125; <span class="keyword">as</span> [db].tblY </span><br><span class="line">ENGINE <span class="operator">=</span> Distributed(cluster_name, database_name, table_name[, sharding_key])</span><br></pre></td></tr></table></figure>
+<p>对以上语法解释：<br>cluster_name：集群名称，与集群配置中的自定义名称相对应。配置在/etc/metrika.xml文件中，如下图：<br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16271507905441.jpg" alt="-w608"><br>database_name：数据库名称。<br>table_name：表名称。<br>sharding_key：可选的，用于分片的key值，在数据写入的过程中，分布式表会依据分片key的规则，将数据分布到各个节点的本地表。<br>[注]：创建分布式表是读时检查的机制，也就是说对创建分布式表和本地表的顺序并没有强制要求。</p>
+<ul>
+<li><p>Clickhouse 查询过程<br>当查询MergeTree表数据时，首先向 <strong>primary.idx</strong> 文件中获取对应的索引，根据索引找到<strong>【列.mrk2】</strong>文件获取对应的数据块偏移量，然后再据偏移量从<strong>【列.bin】</strong>文件中读取块数据。</p>
+</li>
+<li><p>外部表能否做物化视图？如何做？<br>TODO…</p>
+</li>
+<li><p>如何物化全量数据？</p>
+</li>
+</ul>
+<blockquote>
+<p>官方有 POPULATE 关键字，但是不建议使用，因为视图创建期间原始表如果有写入数据会丢失。解决办法：在创建物化视图表的时候添加一个 WHERE 作为数据同步开始点，这个开始点是未来的某一个时间点。<br>详情参考：<a href="https://bohutang.me/2020/08/31/clickhouse-and-friends-materialized-view/">https://bohutang.me/2020/08/31/clickhouse-and-friends-materialized-view/</a></p>
+</blockquote>
+<ul>
+<li>如何将 JSON 导入 CK </li>
+</ul>
+<blockquote>
+<p>在埋点采集这种背景下，不同的事件上报的属性是不一样的，使用官方提供 clickhouse-jdbc.jar，在写入数据时必须将宽表所有字段声明，即便为空的字段也需要填入一个空值或默认值，处理很不灵活。这种情况下使用 HTTP + JSON 方式是不错的选择</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl --location --request POST &#x27;http://localhost:8123/?input_format_skip_unknown_fields=1&amp;query=INSERT%20INTO%20hope_bigdata_dove.event_log%20FORMAT%20JSONEachRow&#x27; \</span><br><span class="line">--header &#x27;X-ClickHouse-User: default&#x27; \</span><br><span class="line">--header &#x27;X-ClickHouse-Key;&#x27; \</span><br><span class="line">--header &#x27;Content-Type: application/json&#x27; \</span><br><span class="line">--data-raw &#x27;&#123;&quot;event1&quot;: &quot;payOrder&quot;, &quot;time&quot;: 163432245211,&quot;appLong&quot;: 12, &quot;isSuccess&quot;: &quot;true&quot;, &quot;p__app_version&quot;: 2.23&#125;</span><br><span class="line">&#123;&quot;event&quot;: &quot;payOrder&quot;, &quot;time&quot;: 163432245211&#125;&#x27;</span><br></pre></td></tr></table></figure>
+<p>注意的几个问题:</p>
+<blockquote>
+<p>① input_format_skip_unknown_fields=1 可忽略未在表中声明的字段<br>② 异常: Cannot parse JSON string: expected opening quote: (while reading the value of key version)<br><strong>表 version 字段声明为 String 类型，接收到的值为数字. String 类型必须有双引号</strong><br>③ 异常：Cannot parse input: expected ‘,’ before: ‘true, “p__app_version”: “2”}\n{“event”: “payOrder”, “time”: 163432245211}’: (at row 1)<br><strong>类似这种错误一般都是字段类型不匹配造成，错误信息不是很明显。CK 没有 boolean 类型，表中某字段声明为 Enum8(‘true’=1,’false’=0)，类型无法匹配。需要写入的值用双引号括起来，当做字符串</strong></p>
+</blockquote>
+<p><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16272124200808.jpg" alt="-w1780"></p>
+<p>–<br>参考:<br><a href="https://www.cnblogs.com/zhoujinyi/p/12627780.html">https://www.cnblogs.com/zhoujinyi/p/12627780.html</a><br>[Commiter Blog] <a href="https://bohutang.me/">https://bohutang.me</a></p>
+<p>【clickhouse优化最佳实践(易企秀)】<br><a href="https://www.jianshu.com/p/a72a4782a102">https://www.jianshu.com/p/a72a4782a102</a></p>
+]]></content>
+      <categories>
+        <category>ClickHouse</category>
+      </categories>
+      <tags>
+        <tag>ClickHouse</tag>
+      </tags>
+  </entry>
+</search>
