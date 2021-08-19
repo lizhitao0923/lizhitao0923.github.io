@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ClickHouse 入门</title>
+    <title>ClickHouse 学习笔记</title>
     <url>/2021/08/16/ClickHouse/2021-08-16/</url>
     <content><![CDATA[<ul>
 <li>ClickHouse 数据在目录中是如何存储的？</li>
@@ -70,7 +70,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Kubernetes 入门</title>
+    <title>Kubernetes 学习笔记</title>
     <url>/2020/09/20/Kubernetes/Kubernetes%20%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<h1 id="安装k8s的常用工具"><a href="#安装k8s的常用工具" class="headerlink" title="安装k8s的常用工具"></a>安装k8s的常用工具</h1><p><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16005717572781.jpg" alt="-w1537"><br><strong>推荐</strong> <a href="https://kuboard.cn/install/install-k8s.html">https://kuboard.cn/install/install-k8s.html</a></p>
 <span id="more"></span>
