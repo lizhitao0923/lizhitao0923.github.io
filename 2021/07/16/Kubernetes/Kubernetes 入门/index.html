@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Flink," />
 
 
 
@@ -79,13 +79,39 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lee大树的博客">
-<meta property="og:url" content="https://lizhitao0923.github.io/index.html">
+<meta name="description" content="安装k8s的常用工具推荐 https:&#x2F;&#x2F;kuboard.cn&#x2F;install&#x2F;install-k8s.html 常用命令12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364# 执行如下命令，等待 3-10 分钟，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flink 集成 Hive">
+<meta property="og:url" content="https://lizhitao0923.github.io/2021/07/16/Kubernetes/Kubernetes%20%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Lee大树的博客">
+<meta property="og:description" content="安装k8s的常用工具推荐 https:&#x2F;&#x2F;kuboard.cn&#x2F;install&#x2F;install-k8s.html 常用命令12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364# 执行如下命令，等待 3-10 分钟，">
 <meta property="og:locale">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16005717572781.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16018648502098.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16018657941755.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16018659413086.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16018662457290.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16018734381770.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16018751150603.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16018755240149.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16018760256542.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16018796637964.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16018807803456.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16019926762096.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16019988926813.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16020601718528.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16011036327129.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16018150602205.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16020726117118.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16020731512365.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16021351816109.jpg">
+<meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16019958016308.jpg">
+<meta property="article:published_time" content="2021-07-16T08:17:13.000Z">
+<meta property="article:modified_time" content="2021-08-19T15:58:50.162Z">
 <meta property="article:author" content="Lee大树">
+<meta property="article:tag" content="Flink">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16005717572781.jpg">
 
 
 
@@ -115,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://lizhitao0923.github.io/"/>
+  <link rel="canonical" href="https://lizhitao0923.github.io/2021/07/16/Kubernetes/Kubernetes 入门/"/>
 
 
 
 
 
-  <title>Lee大树的博客</title>
+  <title>Flink 集成 Hive | Lee大树的博客</title>
   
 
 
@@ -140,8 +166,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,336 +293,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lizhitao0923.github.io/2021/08/16/ClickHouse/2021-08-16/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee大树的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/08/16/ClickHouse/2021-08-16/" itemprop="url">ClickHouse 入门</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-16T22:17:13+08:00">
-                2021-08-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ClickHouse/" itemprop="url" rel="index">
-                    <span itemprop="name">ClickHouse</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>ClickHouse 数据在目录中是如何存储的？</li>
-</ul>
-<blockquote>
-<p>在 clickhouse config.xml 中 <code>&lt;path&gt;/var/lib/clickhouse/&lt;/path&gt;</code> 指定了本地数据存储的目录。<br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16271469310713.jpg" alt="-w1082"><br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16271477069317.jpg" alt="-w1162"><br>① all_1_10003_520: “all” 代表分区，该表没有分区所以默认为 all。同一个分区在数据未进行合并的时候会存在多个目录；”1” 代表该分区目录下最小数据块，“10003” 代表该分区目录下的最大数据块，“520” 代表这段数据块范围的数据总共合并的次数。每 15 分钟数据进行一次合并<br>注：如果使用非数字字符串字段作为分区字段，那么分区目录将使用 hashcode(field)_X_Y_N 形式来命名(目录 hashcode 具体对应那个分区，可以通过查看分区表信息获取)<br>② 列式存储，每个字段存在两个文件</p>
-</blockquote>
-<ul>
-<li>查看表的分区信息</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#在系统表 system.part中查询表 tblX 的分区信息：</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">table</span> ,<span class="keyword">partition</span> ,name ,active </span><br><span class="line"><span class="keyword">from</span> system.parts <span class="keyword">where</span> <span class="keyword">table</span> <span class="operator">=</span> <span class="string">&#x27;tblX&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>创建分布式引擎语法</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> [db].tblX <span class="keyword">on</span> cluster &#123;CLUSTER_NAME&#125; <span class="keyword">as</span> [db].tblY </span><br><span class="line">ENGINE <span class="operator">=</span> Distributed(cluster_name, database_name, table_name[, sharding_key])</span><br></pre></td></tr></table></figure>
-<p>对以上语法解释：<br>cluster_name：集群名称，与集群配置中的自定义名称相对应。配置在/etc/metrika.xml文件中，如下图：<br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16271507905441.jpg" alt="-w608"><br>database_name：数据库名称。<br>table_name：表名称。<br>sharding_key：可选的，用于分片的key值，在数据写入的过程中，分布式表会依据分片key的规则，将数据分布到各个节点的本地表。<br>[注]：创建分布式表是读时检查的机制，也就是说对创建分布式表和本地表的顺序并没有强制要求。</p>
-<ul>
-<li><p>Clickhouse 查询过程<br>当查询MergeTree表数据时，首先向 <strong>primary.idx</strong> 文件中获取对应的索引，根据索引找到<strong>【列.mrk2】</strong>文件获取对应的数据块偏移量，然后再据偏移量从<strong>【列.bin】</strong>文件中读取块数据。</p>
-</li>
-<li><p>外部表能否做物化视图？如何做？<br>TODO…</p>
-</li>
-<li><p>如何物化全量数据？</p>
-</li>
-</ul>
-<blockquote>
-<p>官方有 POPULATE 关键字，但是不建议使用，因为视图创建期间原始表如果有写入数据会丢失。解决办法：在创建物化视图表的时候添加一个 WHERE 作为数据同步开始点，这个开始点是未来的某一个时间点。<br>详情参考：<a target="_blank" rel="noopener" href="https://bohutang.me/2020/08/31/clickhouse-and-friends-materialized-view/">https://bohutang.me/2020/08/31/clickhouse-and-friends-materialized-view/</a></p>
-</blockquote>
-<ul>
-<li>如何将 JSON 导入 CK </li>
-</ul>
-<blockquote>
-<p>在埋点采集这种背景下，不同的事件上报的属性是不一样的，使用官方提供 clickhouse-jdbc.jar，在写入数据时必须将宽表所有字段声明，即便为空的字段也需要填入一个空值或默认值，处理很不灵活。这种情况下使用 HTTP + JSON 方式是不错的选择</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST &#x27;http://localhost:8123/?input_format_skip_unknown_fields=1&amp;query=INSERT%20INTO%20hope_bigdata_dove.event_log%20FORMAT%20JSONEachRow&#x27; \</span><br><span class="line">--header &#x27;X-ClickHouse-User: default&#x27; \</span><br><span class="line">--header &#x27;X-ClickHouse-Key;&#x27; \</span><br><span class="line">--header &#x27;Content-Type: application/json&#x27; \</span><br><span class="line">--data-raw &#x27;&#123;&quot;event1&quot;: &quot;payOrder&quot;, &quot;time&quot;: 163432245211,&quot;appLong&quot;: 12, &quot;isSuccess&quot;: &quot;true&quot;, &quot;p__app_version&quot;: 2.23&#125;</span><br><span class="line">&#123;&quot;event&quot;: &quot;payOrder&quot;, &quot;time&quot;: 163432245211&#125;&#x27;</span><br></pre></td></tr></table></figure>
-<p>注意的几个问题:</p>
-<blockquote>
-<p>① input_format_skip_unknown_fields=1 可忽略未在表中声明的字段<br>② 异常: Cannot parse JSON string: expected opening quote: (while reading the value of key version)<br><strong>表 version 字段声明为 String 类型，接收到的值为数字. String 类型必须有双引号</strong><br>③ 异常：Cannot parse input: expected ‘,’ before: ‘true, “p__app_version”: “2”}\n{“event”: “payOrder”, “time”: 163432245211}’: (at row 1)<br><strong>类似这种错误一般都是字段类型不匹配造成，错误信息不是很明显。CK 没有 boolean 类型，表中某字段声明为 Enum8(‘true’=1,’false’=0)，类型无法匹配。需要写入的值用双引号括起来，当做字符串</strong></p>
-</blockquote>
-<p><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16272124200808.jpg" alt="-w1780"></p>
-<p>–<br>参考:<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhoujinyi/p/12627780.html">https://www.cnblogs.com/zhoujinyi/p/12627780.html</a><br>[Commiter Blog] <a target="_blank" rel="noopener" href="https://bohutang.me/">https://bohutang.me</a></p>
-<p>【clickhouse优化最佳实践(易企秀)】<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a72a4782a102">https://www.jianshu.com/p/a72a4782a102</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lizhitao0923.github.io/2021/07/16/Flink/Flink%20%E9%9B%86%E6%88%90%20Hive/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee大树的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/07/16/Flink/Flink%20%E9%9B%86%E6%88%90%20Hive/" itemprop="url">Flink 集成 Hive</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-16T16:17:13+08:00">
-                2021-07-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Flink/" itemprop="url" rel="index">
-                    <span itemprop="name">Flink</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="配置-sql-client-defaults-yaml"><a href="#配置-sql-client-defaults-yaml" class="headerlink" title="配置 sql-client-defaults.yaml"></a>配置 sql-client-defaults.yaml</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h1><p><code>$&#123;FLINK_HOME&#125;/bin/sql-client.sh embedded</code></p>
-<p><img src="images/16292742483723.jpg"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -627,9 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/07/16/Kubernetes/Kubernetes%20%E5%85%A5%E9%97%A8/" itemprop="url">Flink 集成 Hive</a></h1>
+          <h1 class="post-title" itemprop="name headline">Flink 集成 Hive</h1>
         
 
         <div class="post-meta">
@@ -683,6 +379,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">浏览次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -701,9 +402,7 @@
       
 
       
-        
-          
-            <h1 id="安装k8s的常用工具"><a href="#安装k8s的常用工具" class="headerlink" title="安装k8s的常用工具"></a>安装k8s的常用工具</h1><p><strong>推荐</strong> <a target="_blank" rel="noopener" href="https://kuboard.cn/install/install-k8s.html">https://kuboard.cn/install/install-k8s.html</a><br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16005717572781.jpg" alt="-w1537"></p>
+        <h1 id="安装k8s的常用工具"><a href="#安装k8s的常用工具" class="headerlink" title="安装k8s的常用工具"></a>安装k8s的常用工具</h1><p><strong>推荐</strong> <a target="_blank" rel="noopener" href="https://kuboard.cn/install/install-k8s.html">https://kuboard.cn/install/install-k8s.html</a><br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16005717572781.jpg" alt="-w1537"></p>
 <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 执行如下命令，等待 3-10 分钟，直到所有的容器组处于 Running 状态</span></span><br><span class="line">watch kubectl get pod -n kube-system -o wide --show-label</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看节点初始化结果</span></span><br><span class="line">kubectl get nodes -o wide</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 只在 master 节点执行,获得 join命令参数</span></span><br><span class="line">kubeadm token create --print-join-command</span><br><span class="line"><span class="meta"> </span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> 只在 master 节点执行,检查节点是否加入</span></span><br><span class="line">kubectl get nodes -o wide</span><br><span class="line"><span class="meta"> </span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> 查看资源的文档</span></span><br><span class="line"> kubectl [command] -h</span><br><span class="line"> kubectl explain pod</span><br><span class="line"> kubectl explain pod.[apiVersion\spec\metadata\kind]</span><br><span class="line"><span class="meta"> </span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> 查看所有命名空间</span></span><br><span class="line"> kubectl get ns</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 直接粗暴的创建一个pod</span></span><br><span class="line"> kubectl run [pod name] --image [image url] --port [port] --replicas 1</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 扩容</span></span><br><span class="line"> kubectl scale deployment/[pod name]</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 获取service，service的<span class="built_in">type</span>有多种，clusterip、nodeport，clusterip开放的端口仅能在内部访问，nodeport开放的端口可以在外部访问</span></span><br><span class="line"> kubectl get svc</span><br><span class="line"> kubectl edit svc [svc pod name]</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 暴露pod的端口为服务</span></span><br><span class="line"> kubectl expose deployment [deployment name] \ </span><br><span class="line"> --port=[映射到k8s集群IP的端口] \</span><br><span class="line"> --target-port=[在容器内部端口] \</span><br><span class="line"> --name=[service name] \</span><br><span class="line"> --type=NodePort/ClusterIp</span><br><span class="line"> </span><br><span class="line">示例:</span><br><span class="line">[root@k8s-master ~]# kubectl expose deployment nginx-deployment --port=80 --target-port=80 --name=web3 --type=NodePort</span><br><span class="line">service/web3 exposed</span><br><span class="line">[root@k8s-master ~]# kubectl get svc </span><br><span class="line">NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE </span><br><span class="line">web1         ClusterIP   10.96.99.244   &lt;none&gt;        80/TCP         12m</span><br><span class="line">web2         ClusterIP   10.96.3.176    &lt;none&gt;        80/TCP         11m</span><br><span class="line">web3         NodePort    10.96.67.200   &lt;none&gt;        80:32732/TCP   5m17s</span><br><span class="line">访问:</span><br><span class="line">curl http://clusterIp:80 &lt;--&gt; http://10.96.67.200:80</span><br><span class="line">curl http://nodeIp:32732 &lt;--&gt; http://172.16.0.250:32732</span><br><span class="line"><span class="meta"> </span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> 获取具体 pod 的具体容器日志</span></span><br><span class="line"> kubectl logs [POD-NAME] -c [容器名]</span><br><span class="line"><span class="meta"> </span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> 查看运行 pod 的详细信息</span></span><br><span class="line"> kubectl describe pod [pod name] -n kube-system</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 应用 pod 资源文件</span></span><br><span class="line"> kubectl apply -f [k8s yaml描述文件]</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 删除 pod</span></span><br><span class="line"> kubectl delete -f hello-world-pod.yaml</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 删除指定 pod</span></span><br><span class="line"> kubectl delete pod [pod name]</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 删除指定 deployment</span></span><br><span class="line"> kubectl delete deployment [deployment name]</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 删除所有的 pod</span></span><br><span class="line"> kubectl delete pod --all</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 查看所有的 ReplicaSet</span></span><br><span class="line"> kubectl get rs</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 删除所有的 ReplicationSet</span></span><br><span class="line"> kubectl delete rs --all</span><br></pre></td></tr></table></figure>
 
 <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">myapp-pod</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">myapp</span></span><br><span class="line">    <span class="attr">version:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">app</span></span><br><span class="line">      <span class="attr">image:</span> <span class="string">hello-world</span>     </span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -887,8 +586,6 @@
 <p>   –<br>   <img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/19/16019958016308.jpg" alt="-w709"></p>
 <p>参考：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/109577847">https://zhuanlan.zhihu.com/p/109577847</a></p>
 
-          
-        
       
     </div>
     
@@ -900,17 +597,57 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Lee大树
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://lizhitao0923.github.io/2021/07/16/Kubernetes/Kubernetes%20%E5%85%A5%E9%97%A8/" title="Flink 集成 Hive">https://lizhitao0923.github.io/2021/07/16/Kubernetes/Kubernetes%20%E5%85%A5%E9%97%A8/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/Flink/" rel="tag"># Flink</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/07/16/Flink/Flink%20%E9%9B%86%E6%88%90%20Hive/" rel="prev" title="Flink 集成 Hive">
+                Flink 集成 Hive <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -920,10 +657,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -931,6 +669,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -951,8 +693,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1028,6 +779,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85k8s%E7%9A%84%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">安装k8s的常用工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hello-World"><span class="nav-number">3.</span> <span class="nav-text">Hello World</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pod"><span class="nav-number">4.</span> <span class="nav-text">Pod</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pod-%E5%AD%98%E5%9C%A8%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-number">4.1.</span> <span class="nav-text">Pod 存在的意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pod-%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6"><span class="nav-number">4.2.</span> <span class="nav-text">Pod 资源限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pod-%E9%87%8D%E5%90%AF%E7%AD%96%E7%95%A5"><span class="nav-number">4.3.</span> <span class="nav-text">Pod 重启策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pod%E8%B0%83%E5%BA%A6%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%BD%B1%E5%93%8D%E8%B0%83%E5%BA%A6%E7%9A%84%E5%9B%A0%E7%B4%A0"><span class="nav-number">4.4.</span> <span class="nav-text">Pod调度流程及影响调度的因素</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service"><span class="nav-number">5.</span> <span class="nav-text">Service</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-number">5.1.</span> <span class="nav-text">存在的意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service-%E4%B8%8E-Pod-%E5%85%B3%E7%B3%BB"><span class="nav-number">5.2.</span> <span class="nav-text">Service 与 Pod 关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service-%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.3.</span> <span class="nav-text">Service 类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">6.</span> <span class="nav-text">容器生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#init%E5%AE%B9%E5%99%A8%E7%A4%BA%E4%BE%8B"><span class="nav-number">6.1.</span> <span class="nav-text">init容器示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%B5%8B%E6%8E%A2%E9%92%88-%E5%B0%B1%E7%BB%AA%E6%A3%80%E6%B5%8B-readiness"><span class="nav-number">6.2.</span> <span class="nav-text">检测探针 - 就绪检测(readiness)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%B5%8B%E6%8E%A2%E9%92%88-%E5%AD%98%E6%B4%BB%E6%A3%80%E6%B5%8B"><span class="nav-number">6.3.</span> <span class="nav-text">检测探针 - 存活检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E3%80%81%E9%80%80%E5%87%BA%E5%8A%A8%E4%BD%9C"><span class="nav-number">6.4.</span> <span class="nav-text">启动、退出动作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pod%E5%88%86%E7%B1%BB"><span class="nav-number">7.</span> <span class="nav-text">Pod分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">8.</span> <span class="nav-text">控制器类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ReplicationController-%E5%92%8C-ReplicaSet"><span class="nav-number">8.1.</span> <span class="nav-text">ReplicationController 和 ReplicaSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deployment"><span class="nav-number">8.2.</span> <span class="nav-text">Deployment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0-Deployment"><span class="nav-number">8.2.1.</span> <span class="nav-text">更新 Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment-%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5"><span class="nav-number">8.2.2.</span> <span class="nav-text">Deployment 更新策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rollover%EF%BC%88%E5%A4%9A%E4%B8%AArollout%E5%B9%B6%E8%A1%8C%EF%BC%89"><span class="nav-number">8.2.3.</span> <span class="nav-text">Rollover（多个rollout并行）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E9%80%80-Deployment"><span class="nav-number">8.2.4.</span> <span class="nav-text">回退 Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment-%E6%B8%85%E7%90%86-Policy"><span class="nav-number">8.2.5.</span> <span class="nav-text">Deployment 清理 Policy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DaemonSet"><span class="nav-number">8.3.</span> <span class="nav-text">DaemonSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Job"><span class="nav-number">8.4.</span> <span class="nav-text">Job</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CronJob"><span class="nav-number">8.5.</span> <span class="nav-text">CronJob</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StatefulSet"><span class="nav-number">8.6.</span> <span class="nav-text">StatefulSet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AESecret"><span class="nav-number">9.</span> <span class="nav-text">配置Secret</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K8S-%E9%9B%86%E7%BE%A4%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6"><span class="nav-number">10.</span> <span class="nav-text">K8S 集群安全机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ingress"><span class="nav-number">11.</span> <span class="nav-text">Ingress</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">11.1.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Ingress"><span class="nav-number">11.2.</span> <span class="nav-text">使用 Ingress</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1169,6 +936,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
