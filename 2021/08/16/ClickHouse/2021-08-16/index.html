@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16271507905441.jpg">
 <meta property="og:image" content="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16272124200808.jpg">
 <meta property="article:published_time" content="2021-08-16T14:17:13.000Z">
-<meta property="article:modified_time" content="2021-08-17T12:11:58.065Z">
+<meta property="article:modified_time" content="2021-08-19T16:23:56.631Z">
 <meta property="article:author" content="Lee大树">
 <meta property="article:tag" content="ClickHouse">
 <meta name="twitter:card" content="summary">
@@ -392,6 +392,7 @@
 <blockquote>
 <p>在 clickhouse config.xml 中 <code>&lt;path&gt;/var/lib/clickhouse/&lt;/path&gt;</code> 指定了本地数据存储的目录。<br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16271469310713.jpg" alt="-w1082"><br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/15/16271477069317.jpg" alt="-w1162"><br>① all_1_10003_520: “all” 代表分区，该表没有分区所以默认为 all。同一个分区在数据未进行合并的时候会存在多个目录；”1” 代表该分区目录下最小数据块，“10003” 代表该分区目录下的最大数据块，“520” 代表这段数据块范围的数据总共合并的次数。每 15 分钟数据进行一次合并<br>注：如果使用非数字字符串字段作为分区字段，那么分区目录将使用 hashcode(field)_X_Y_N 形式来命名(目录 hashcode 具体对应那个分区，可以通过查看分区表信息获取)<br>② 列式存储，每个字段存在两个文件</p>
 </blockquote>
+<span id="more"></span>
 <ul>
 <li>查看表的分区信息</li>
 </ul>
