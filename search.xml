@@ -274,16 +274,16 @@
 <li>元数据建模<br>元数据建模通过结合标签与数据属性的方式来更好地理解数据及生命周期，从而实现对元数据的快速建模。</li>
 <li>易于交互的解决方案<br>通过建立统一的、贯穿Hadoop生态系统的元数据库，定义统一的元数据标准，为系统中不同组件的元数据信息进行交互提供基础。<span id="more"></span></li>
 </ul>
-<h1 id="功能需求"><a href="#功能需求" class="headerlink" title="功能需求"></a>功能需求</h1><p><img src="images/16293913472516.jpg"></p>
-<h1 id="开源产品调研"><a href="#开源产品调研" class="headerlink" title="开源产品调研"></a>开源产品调研</h1><p><img src="images/16293914434229.jpg"><br>在调研的产品中 Metacat 与 Atlas 在产品功能方面是比较突出的，前者擅长数据字典的管理后者主要很好的解决了数据血缘的获取。</p>
+<h1 id="功能需求"><a href="#功能需求" class="headerlink" title="功能需求"></a>功能需求</h1><p><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/20/16293913472516.jpg"></p>
+<h1 id="开源产品调研"><a href="#开源产品调研" class="headerlink" title="开源产品调研"></a>开源产品调研</h1><p><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/20/16293914434229.jpg"><br>在调研的产品中 Metacat 与 Atlas 在产品功能方面是比较突出的，前者擅长数据字典的管理后者主要很好的解决了数据血缘的获取。</p>
 <ul>
-<li><p>Metacat 架构<br><img src="images/16293915327926.jpg"><br>支持多种元数据的获取，通过扩展 Connector 满足各类元数据采集。</p>
+<li><p>Metacat 架构<br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/20/16293915327926.jpg"><br>支持多种元数据的获取，通过扩展 Connector 满足各类元数据采集。</p>
 </li>
-<li><p>Atlas 架构<br><img src="images/16293915388801.jpg"></p>
+<li><p>Atlas 架构<br><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/20/16293915388801.jpg"></p>
 </li>
 </ul>
 <p>获取元数据的两种方式：Batch、Hook<br>Batch：Atlas 允许用户执行某一脚本获取相应组件的元数据信息，将该组件的元数据信息更新到元数据库中。即，当用户不执行获取元数据的脚本时，相应组件的数据变更不会导致 Atlas 元数据库中的信息变更；当用户执行获取元数据的脚本时，相应组件中若存在数据的变更，Atlas 就会将其所有新增的元数据信息存入元数据库中<br>Hook：对于通过 HOOK 的方式获取元数据，针对每一种组件，都有相应的 HOOK，用户可以根据自身需要针对不同组件对 HOOK 进行配置。当配置完成后，相应组件的 HOOK 会监听该组件的各种操作，一旦该组件的状态发生变化，HOOK 会自动创建相应的元数据对象，并发送给 Atlas 处理</p>
-<h1 id="总体技术方案"><a href="#总体技术方案" class="headerlink" title="总体技术方案"></a>总体技术方案</h1><p><img src="images/16293919184451.jpg"></p>
+<h1 id="总体技术方案"><a href="#总体技术方案" class="headerlink" title="总体技术方案"></a>总体技术方案</h1><p><img src="https://lizhitao-blog.oss-cn-hangzhou.aliyuncs.com/2021/08/20/16293919184451.jpg"></p>
 ]]></content>
       <categories>
         <category>数据治理</category>
